@@ -1,0 +1,340 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-links a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.navbar-links a:hover {
+  color: var(--color-primary);
+}
+
+.navbar-user {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.navbar-links button {
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.35rem 0.75rem;
+  color: var(--color-text);
+}
+
+.app-main {
+  flex: 1;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.error-text {
+  color: var(--color-error);
+}
+
+/* Catalog */
+
+.catalog-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.search-bar {
+  flex: 1 1 220px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.filter-select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.pokemon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.pokemon-grid.is-fetching {
+  opacity: 0.6;
+}
+
+.pokemon-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.pokemon-card-main {
+  background: none;
+  border: none;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-text);
+}
+
+.pokemon-card-main img {
+  width: 72px;
+  height: 72px;
+  image-rendering: pixelated;
+}
+
+.pokemon-card-name {
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.pokemon-card-add {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-primary);
+  color: #fff;
+  padding: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.pokemon-card-add:disabled {
+  background: var(--color-border);
+  color: var(--color-muted);
+  cursor: default;
+}
+
+.type-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  justify-content: center;
+}
+
+.type-badge {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  color: #fff;
+  background: #777;
+}
+
+.type-fire { background: #e8622c; }
+.type-water { background: #4f92d6; }
+.type-grass { background: #5aa553; }
+.type-electric { background: #e4c531; color: #332b00; }
+.type-ice { background: #6fd0c5; color: #06302a; }
+.type-fighting { background: #b5544a; }
+.type-poison { background: #934f93; }
+.type-ground { background: #cc9f4a; color: #332400; }
+.type-flying { background: #91a2e3; }
+.type-psychic { background: #e3698a; }
+.type-bug { background: #93a52b; }
+.type-rock { background: #b7a141; color: #332b00; }
+.type-ghost { background: #6a5a93; }
+.type-dragon { background: #6448d8; }
+.type-dark { background: #4a3f36; }
+.type-steel { background: #8f8fa3; color: #1a1a24; }
+.type-fairy { background: #e38ec6; color: #3a0f27; }
+.type-normal { background: #959584; color: #1a1a15; }
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.pagination button {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  border-radius: 6px;
+  padding: 0.4rem 1rem;
+}
+
+.pagination button:disabled {
+  color: var(--color-muted);
+  cursor: default;
+}
+
+/* Modal */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 10;
+}
+
+.modal-content {
+  position: relative;
+  background: var(--color-surface);
+  border-radius: 12px;
+  padding: 2rem 1.5rem 1.5rem;
+  max-width: 420px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  text-align: center;
+}
+
+.modal-content h2 {
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--color-muted);
+  line-height: 1;
+}
+
+.modal-sprite {
+  width: 120px;
+  height: 120px;
+  image-rendering: pixelated;
+}
+
+.stat-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  max-width: 260px;
+  margin: 0.5rem auto;
+}
+
+.stat-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Auth forms */
+
+.auth-form {
+  max-width: 320px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.auth-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.auth-form input {
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.auth-form button {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem;
+  font-weight: 600;
+}
+
+.auth-form button:disabled {
+  background: var(--color-border);
+  color: var(--color-muted);
+}
+
+/* Team */
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.team-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.team-slot img {
+  width: 72px;
+  height: 72px;
+  image-rendering: pixelated;
+}
+
+.team-slot button {
+  border: 1px solid var(--color-error);
+  color: var(--color-error);
+  background: none;
+  border-radius: 6px;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.8rem;
+}
